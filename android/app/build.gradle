@@ -137,8 +137,16 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-navigation')
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-system-setting')
+    compile project(':react-native-shimmer')
+    compile project(':react-native-i18n')
+    compile project(':react-native-device-info')
+    compile project(':react-native-app-settings')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation 'com.android.support:design:27.1.0'
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }
 
