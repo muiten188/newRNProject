@@ -5,7 +5,7 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
-
+export var store = null;
 const persistConfig = {
     key: 'root',
     storage,
@@ -22,11 +22,17 @@ if (__DEV__) {
 // const enhancer = [autoRehydrate(), applyMiddleware(...middleware)]
 
 export default function configureStore(callback, initialState = {}) {
-    let store = createStore(
+    store = createStore(
         persistedReducer,
         initialState,
         applyMiddleware(...middleware)
     )
     sagaMiddleware.run(rootSaga)
-    callback(store)
+    if (callback) {
+        callback(store)
+    }
+
+    else {
+        return store;
+    }
 }

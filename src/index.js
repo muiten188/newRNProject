@@ -5,38 +5,34 @@ import configStore from './store'
 import { YellowBox, NetInfo } from 'react-native'
 import { persistStore } from 'redux-persist'
 // import I18n from '~/src/I18n'
-
+import { Provider } from 'react-redux';
 import App from './containers'
-
-export const store = configStore()
-const _persist = (store) => {
-    return new Promise(resolve => {
-        persistStore(store, undefined, () => {
-            resolve();
-        });
-    })
-}
+import {store} from './store';
+//export const store = configStore()
+// const _persist = (store) => {
+//     return new Promise(resolve => {
+//         persistStore(store, undefined, () => {
+//             resolve();
+//         });
+//     })
+// }
 
 export default class AppRoot extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            store: null
-        }
     }
 
-    componentDidMount() {
-        configStore(store => this.setState({ store }))
-    }
+    // componentDidMount() {
+    //     configStore(store => this.setState({ store }))
+    // }
 
     render() {
-        const { store } = this.state;
         if (!store) {
             return (<Text>Initializing...</Text>)
         }
         return (
-            <Provider store={this.state.store}>
+            <Provider store={store}>
                 <App />
             </Provider>
         );

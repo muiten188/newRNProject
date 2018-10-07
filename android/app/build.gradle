@@ -94,15 +94,16 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "com.newrnproject"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        applicationId "com.newrnproject2"
+        minSdkVersion 16
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -137,17 +138,17 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-navigation')
     compile project(':react-native-vector-icons')
     compile project(':react-native-system-setting')
     compile project(':react-native-shimmer')
     compile project(':react-native-i18n')
     compile project(':react-native-device-info')
     compile project(':react-native-app-settings')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation 'com.android.support:design:27.1.0'
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    compile project(':react-native-navigation')
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile "com.android.support:appcompat-v7:27.1.0"
+    compile "com.facebook.react:react-native:+"  // From node_modules
+    compile 'com.android.support:multidex:1.0.3'
 }
 
 // Run this once to be able to run the application with BUCK
@@ -155,4 +156,14 @@ dependencies {
 task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
+}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.0'
+            }
+        }
+    }
 }
