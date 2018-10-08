@@ -35,50 +35,6 @@ const _persist = (store) => {
   })
 }
 
-const _setRoot = (bottomTabs) => {
-  // const state = store.getState()
-  let rootScreen = 'gigabankclient.Authentication'
-  // if (chainParse(state, ['auth', 'accessToken'])) {
-  //     rootScreen = 'gigabankclient.HomeScreen'
-  // }
-  // Navigation.setRoot({
-  //     root: {
-  //         stack: {
-  //             id: 'mainStack',
-  //             children: [
-  //                 {
-  //                     component: {
-  //                         // name: 'gigabankclient.AddCard'
-  //                         // name: 'gigabankclient.AddCardSuccess'
-  //                         // name: 'gigabankclient.AddCardFail'
-  //                         // name: 'gigabankclient.WithDraw',
-  //                         // name: 'gigabankclient.WithDrawSearch'
-  //                         // name: 'gigabankclient.WithDrawInfo'
-  //                         // name: 'gigabankclient.WithDrawAuthen'
-  //                         // name: 'gigabankclient.ChargePhone'
-  //                         // name: 'gigabankclient.EnterPassword'
-  //                         // name: 'gigabankclient.ChargePhoneAuthen'
-  //                         // name: 'gigabankclient.AlertScreen'
-
-  //                         // name: 'gigabankclient.BuyCardResult',
-  //                         // id: 'BuyCardResult'
-
-  //                         // name: 'gigabankclient.BuyCardCodes',
-  //                         // id: 'BuyCardCodes'
-
-  //                         // name: 'gigabankclient.HomeScreen',
-  //                         // id: 'HomeScreen'
-
-  //                         name: rootScreen,
-  //                     }
-  //                 }
-  //             ]
-  //         },
-
-  //     }
-  // })
-}
-
 // YellowBox.ignoreWarnings([
 //     'Warning: Module SafeAreaManager requires',
 // ]);
@@ -106,110 +62,52 @@ const _setRoot = (bottomTabs) => {
 //     )
 // }
 
+const navigatorStyle = {
+	statusBarColor: 'black',
+	statusBarTextColorScheme: 'light',
+	navigationBarColor: 'black',
+	navBarBackgroundColor: '#0a0a0a',
+	navBarTextColor: 'white',
+	navBarButtonColor: 'white',
+	tabBarButtonColor: 'red',
+	tabBarSelectedButtonColor: 'red',
+	tabBarBackgroundColor: 'white',
+	topBarElevationShadowEnabled: false,
+	navBarHideOnScroll: true,
+	tabBarHidden: true,
+	drawUnderTabBar: true
+};
+
 export const run = () => {
   registerScreens(store)
-//   Navigation.setDefaultOptions({
-//     animations: {
-//         push: {
-//           content: {
-//               x: {
-//                   from: 1000,
-//                   to: 0,
-//                   duration: 300,
-//                   interpolation: 'accelerate',
-//               },
-//           }
-//       },
-//         pop: {
-//           content: {
-//               x: {
-//                   from: 0,
-//                   to: 1000,
-//                   duration: 300,
-//                   interpolation: 'accelerate',
-//               },
-//           }
-      
-//       },
-//     },
-//     topBar: {
-//         visible: false,
-//         animate: false,
-//         drawBehind: false,
-//         elevation: 2,
-//     },
-//     layout: {
-//     },
-//     statusBar: {
-//         drawBehind: false,
-//         backgroundColor: 'transparent',
-//         visible: true
-//     },
-//     bottomTabs: {
-//         titleDisplayMode: 'alwaysShow'
-//     }
-// })
-
-  // Navigation.events().registerAppLaunchedListener(() => {
-  //     Navigation.setDefaultOptions({
-  //         animations: {
-  //             push: {
-  //               content: {
-  //                   x: {
-  //                       from: 1000,
-  //                       to: 0,
-  //                       duration: 300,
-  //                       interpolation: 'accelerate',
-  //                   },
-  //               }
-  //           },
-  //             pop: {
-  //               content: {
-  //                   x: {
-  //                       from: 0,
-  //                       to: 1000,
-  //                       duration: 300,
-  //                       interpolation: 'accelerate',
-  //                   },
-  //               }
-            
-  //           },
-  //         },
-  //         topBar: {
-  //             visible: false,
-  //             animate: false,
-  //             drawBehind: false,
-  //             elevation: 2,
-  //         },
-  //         layout: {
-  //         },
-  //         statusBar: {
-  //             drawBehind: false,
-  //             backgroundColor: 'transparent',
-  //             visible: true
-  //         },
-  //         bottomTabs: {
-  //             titleDisplayMode: 'alwaysShow'
-  //         }
-  //     })
-  //     // console.log('Before Promise', new Date().getTime())
-  //     // Promise.all([
-  //     //     _persist(store)
-  //     // ]).then((values) => {
-  //     //     // Apply language after restore store
-  //     //     // const state = store.getState()
-  //     //     // // const language = languageSelector(state)
-  //     //     // // I18n.locale = language.toLowerCase()
-
-  //     //     // const bottomTabs = values[0]
-  //     //     // _setRoot(bottomTabs)
-  //     //     // _listenNetworkConnection()
-  //     // })
-  // })
   Navigation.startSingleScreenApp({
     screen: {
       screen: 'newProject.Home',
       title: 'Home',
+      navigatorStyle,
+      navigatorStyle: {
+        navBarHidden: true
+      },
+      leftButtons: [
+        {
+          id: 'sideMenu'
+        }
+      ],
+      rightButtons: [
+        {
+          id: 'sideMenu2',
+          icon: require('./src/resources/icon/web_hi_res_512.png'),
+        },
+        {
+          id: 'back',
+          icon: require('./src/resources/icon/web_hi_res_512.png'),
+        }
+      ],
     },
+    drawer: {
+      left: {
+        screen: 'newProject.Home2'
+      }
+    }
   });
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
     AppRegistry,
     StyleSheet,
+    View,
     Text,
 } from "react-native";
 import { bindActionCreators } from "redux";
@@ -14,7 +15,9 @@ class Home2 extends Component {
     }
     render() {
         return (
-            <Text>Đây là home2 containner</Text>
+            <View style={{flex:1,backgroundColor:'black'}}>
+                <Text style={{color:'white'}}>Drawer</Text>
+            </View>
         );
     }
 }

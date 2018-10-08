@@ -2735,13 +2735,6 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.1.1"
 
-hoist-non-react-statics@3.x.x:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.0.1.tgz#fba3e7df0210eb9447757ca1a7cb607162f0a364"
-  integrity sha512-1kXwPsOi0OGQIZNVMPvgWJ9tSnGMiMfJdihqEzrPEXlHOBh9AAHXX/QYmAJTXztnz/K+PQ8ryCb4eGaN6HlGbQ==
-  dependencies:
-    react-is "^16.3.2"
-
 hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -4729,7 +4722,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@15.x.x, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -4804,15 +4797,10 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-is@^16.3.1, react-is@^16.3.2:
+react-is@^16.3.1:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
   integrity sha512-hSl7E6l25GTjNEZATqZIuWOgSnpXb3kD0DVCujmg46K5zLxsbiKaaT6VO9slkSBDPZfYs30lwfJwbOFOnoEnKQ==
-
-react-lifecycles-compat@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
-  integrity sha512-txfpPCQYiazVdcbMRhatqWKcAxJweUu2wDXvts5/7Wyp6+Y9cHojqXHsLPEckzutfHlxZhG8Oiundbmp8Fd6eQ==
 
 react-native-app-settings@^2.0.0:
   version "2.0.0"
@@ -4859,15 +4847,12 @@ react-native-material-ripple@^0.8.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-navigation@^2.0.2575:
-  version "2.0.2575"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2575.tgz#c8594d36165ac17d48b922cad03df88c4f4476ae"
-  integrity sha512-k8/mqmdzHZ3lHpxXWA2MEzM618+beDLpAIH6ABSFcoBJVnsQ5V438OF2N80LFY0zMWAH1h0NxOfrAmJfHYGssw==
+react-native-navigation@^1.1.487:
+  version "1.1.487"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.487.tgz#7ed0a341bc811590462e9673191e22b678a6cd86"
+  integrity sha512-dj2tl/mNncKBbonL5vrvDFcVj9Kg6yelbryc800BYpLlZxpelDcjez4Ifyaegl94Dx6j0SElCG4PQZd5DAeUfA==
   dependencies:
-    hoist-non-react-statics "3.x.x"
     lodash "4.x.x"
-    prop-types "15.x.x"
-    react-lifecycles-compat "2.0.0"
 
 react-native-permissions@^1.1.1:
   version "1.1.1"
