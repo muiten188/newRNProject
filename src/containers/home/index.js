@@ -18,11 +18,12 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import styles from './styles'
 import Swiper from 'react-native-swiper';
-import Ripple from 'react-native-material-ripple';
+    import Ripple from 'react-native-material-ripple';
 import * as homeAction from '../../store/actions/home'
 import ProgressBar from '../../conponent/progressBar';
 import Header from '../../conponent/header'
 import GearIndicator from '../../conponent/gearsIndicator';
+import Button from '../../theme/button';
 // Tells the library to detect iBeacon
 class Home extends Component {
     constructor(props) {
@@ -62,7 +63,8 @@ class Home extends Component {
             this.state.isLoading ? <View style={styles.progressBar}><ProgressBar /></View> :
                 <View style={{ flex: 1 }}>
                     <Header></Header>
-                        <GearIndicator/>
+                    <Button></Button>
+                    <GearIndicator />
                     <ScrollView
                         ref='PTRListView'
                         style={styles.container}

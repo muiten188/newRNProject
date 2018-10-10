@@ -3,6 +3,7 @@ package com.newrnproject2;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.ninty.system.setting.SystemSettingPackage;
 import com.oblador.shimmer.RNShimmerPackage;
@@ -30,6 +31,7 @@ import java.util.List;
 //     protected List<ReactPackage> getPackages() {
 //       return Arrays.<ReactPackage>asList(
 //           new MainReactPackage(),
+            
 
 // new NavigationReactPackage()
 //       );
@@ -68,7 +70,8 @@ public class MainApplication extends NavigationApplication {
       new RNShimmerPackage(),
       new RNI18nPackage(),
       new RNDeviceInfo(),
-      new OpenAppSettingsPackage()
+      new OpenAppSettingsPackage(),
+      new LinearGradientPackage()
       );
 
   }

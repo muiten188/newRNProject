@@ -24,7 +24,7 @@ class GearsIndicator extends Component {
             {
                 toValue: 1,
                 duration: 4000,
-                easing: Easing.bounce
+                easing: Easing.spring
             }
         ).start(() => { this.spin() })
     }
@@ -35,7 +35,7 @@ class GearsIndicator extends Component {
             {
                 toValue: 1,
                 duration: 4000,
-                easing:Easing.cubic
+                easing: Easing.cubic
             }
         ).start(() => { this.opacity() })
     }
@@ -47,18 +47,19 @@ class GearsIndicator extends Component {
 
     render() {
         const spin = this.spinValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '360deg']
+            inputRange: [0, 0.5, 1],
+            // outputRange: ['0deg', '360deg']
+            outputRange: [0.5, 1, 0.5]
         })
         const marginLeft = this.animatedValue.interpolate({
             inputRange: [0, 0.5, 1],
-            outputRange: [0, 120, 0]
+            outputRange: [-200, 100, -200]
         })
         return (
             <View style={styles.background}>
                 <Animated.Image
-                    style={[styles.gearOne, { transform: [{ rotate: spin }], marginLeft }]}
-                    source={require('../../resources/image/7ce8ec37-6405-48e7-bef6-5af44b0bca53.jpg')}
+                    style={[styles.gearOne, { transform: [{ scale: spin }], marginLeft }]}
+                    source={require('../../resources/image/8d7ae2ed-f9cd-4ca1-93a6-7ce77856ca67.jpg')}
                 />
                 {/* <Animated.Image
                     style={styles.gearTwo}
@@ -89,12 +90,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     gearOne: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        top: 0,
-
+        width:100,
+        height:100
     },
     gearTwo: {
         position: 'absolute',
