@@ -3,6 +3,7 @@ package com.newrnproject2;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.ninty.system.setting.SystemSettingPackage;
@@ -31,6 +32,7 @@ import java.util.List;
 //     protected List<ReactPackage> getPackages() {
 //       return Arrays.<ReactPackage>asList(
 //           new MainReactPackage(),
+            
             
 
 // new NavigationReactPackage()
@@ -71,7 +73,8 @@ public class MainApplication extends NavigationApplication {
       new RNI18nPackage(),
       new RNDeviceInfo(),
       new OpenAppSettingsPackage(),
-      new LinearGradientPackage()
+      new LinearGradientPackage(),
+      new FastImageViewPackage()
       );
 
   }

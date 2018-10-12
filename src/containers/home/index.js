@@ -18,19 +18,23 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import styles from './styles'
 import Swiper from 'react-native-swiper';
-    import Ripple from 'react-native-material-ripple';
+import Ripple from 'react-native-material-ripple';
 import * as homeAction from '../../store/actions/home'
 import ProgressBar from '../../conponent/progressBar';
 import Header from '../../conponent/header'
 import GearIndicator from '../../conponent/gearsIndicator';
 import Button from '../../theme/button';
+import Background from '../../theme/background'
+import FastImageComponent from '../../conponent/fastImage';
+import Shimmer from 'react-native-shimmer';
 // Tells the library to detect iBeacon
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isLoading: true,
-            refreshing: false
+            refreshing: false,
+            shimmer: true
         };
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
@@ -39,6 +43,9 @@ class Home extends Component {
         this.props.homeAction.retrieveNowPlayingMovies();
         this.props.homeAction.retrievePopularMovies();
         if (this.state.isRefreshed && this.setState({ refreshing: false }));
+        // setTimeout(() => {
+        //     this.setState({ shimmer: false });
+        // }, 5000);
     }
 
 
@@ -61,7 +68,13 @@ class Home extends Component {
         const { counter } = this.props.homeReducer;
         return (
             this.state.isLoading ? <View style={styles.progressBar}><ProgressBar /></View> :
-                <View style={{ flex: 1 }}>
+                <Background>
+                    <Shimmer animating={this.state.shimmer}>
+                        <View style={{ width: '100%', height: 200 }}>
+                            <FastImageComponent></FastImageComponent>
+                        </View>
+                    </Shimmer>
+
                     <Header></Header>
                     <Button></Button>
                     <GearIndicator />
@@ -262,7 +275,7 @@ class Home extends Component {
                             </View>
                         </View>
                     </ScrollView>
-                </View>
+                </Background>
         );
     }
 }
