@@ -3,6 +3,7 @@ package com.newrnproject2;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.dylanvann.fastimage.FastImageViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -32,6 +33,7 @@ import java.util.List;
 //     protected List<ReactPackage> getPackages() {
 //       return Arrays.<ReactPackage>asList(
 //           new MainReactPackage(),
+            
             
             
 
@@ -74,7 +76,8 @@ public class MainApplication extends NavigationApplication {
       new RNDeviceInfo(),
       new OpenAppSettingsPackage(),
       new LinearGradientPackage(),
-      new FastImageViewPackage()
+      new FastImageViewPackage(),
+      new MapsPackage()
       );
 
   }

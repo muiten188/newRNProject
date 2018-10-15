@@ -82,7 +82,7 @@ export const run = () => {
   registerScreens(store)
   Navigation.startSingleScreenApp({
     screen: {
-      screen: 'newProject.Home',
+      screen: 'newProject.Home2',
       title: 'Home',
       navigatorStyle,
       navigatorStyle: {
