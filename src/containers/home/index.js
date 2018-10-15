@@ -69,7 +69,7 @@ class Home extends Component {
         return (
             this.state.isLoading ? <View style={styles.progressBar}><ProgressBar /></View> :
                 <Background>
-                    <Shimmer animating={this.state.shimmer}>
+                    <Shimmer animating={this.state.shimmer&&false}>
                         <View style={{ width: '100%', height: 200 }}>
                             <FastImageComponent></FastImageComponent>
                         </View>
